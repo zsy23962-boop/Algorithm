@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main()
+{
+    double s;
+    double step = 2;
+    double sum = 0;
+    int count = 0;
+
+    scanf("%lf", &s);
+
+    while (sum < s)
+    {
+        sum += step;
+        count++;
+        step *= 0.98;
+    }
+
+    printf("%d\n", count);
+
+    return 0;
+}
