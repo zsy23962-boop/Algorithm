@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main() {
+    long long N, M;
+    if (scanf("%lld %lld", &N, &M) != 2) return 0;
+
+    long long K = (N < M) ? N : M;
+    long long square_count = K * N * M 
+                           - (N + M) * K * (K - 1) / 2 
+                           + K * (K - 1) * (2 * K - 1) / 6;
+    
+    long long total_rectangles = (N * (N + 1) / 2) * (M * (M + 1) / 2);
+
+    long long rectangle_count = total_rectangles - square_count;
+    printf("%lld %lld\n", square_count, rectangle_count);
+
+    return 0;
+}
