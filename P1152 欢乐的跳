@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int n;
+    while(scanf("%d",&n)!=EOF)
+    {
+        int a[1005];
+        int flag[1005]={0};
+
+        for(int i=0;i<n;i++)
+        {
+            scanf("%d",&a[i]);
+        }
+        int ok = 1;
+        for(int i=0;i<n-1;i++)
+        {
+            int d = abs(a[i+1]-a[i]);
+            if(d<1 || d>n-1)
+            {
+                ok = 0;
+            }else{
+                if(flag[d])
+                {
+                    ok = 0;
+                }
+                flag[d]=1;
+            }
+        }
+
+        for(int i=1;i<n;i++)
+        {
+            if(flag[i]==0)
+            {
+                ok=0;
+            }
+        }
+        if(ok)
+            printf("Jolly\n");
+        else
+            printf("Not jolly\n");
+    }
+    return 0;
+}
